@@ -246,7 +246,9 @@ endif
 if SAMSUNGIPCMODEM
 builtin_modules += samsungipcmodem
 builtin_sources += drivers/samsungipcmodem/samsungipcmodem.h \
-				   drivers/samsungipcmodem/samsungipcmodem.c
+				   drivers/samsungipcmodem/samsungipcmodem.c \
+				   drivers/samsungipcmodem/ipc.h \
+				   drivers/samsungipcmodem/ipc.c
 builtin_cflags += @SAMSUNGIPCMODEM_CFLAGS@
 builtin_libadd += @SAMSUNGIPCMODEM_LIBS@
 endif
