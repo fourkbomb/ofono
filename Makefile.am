@@ -248,7 +248,8 @@ builtin_modules += samsungipcmodem
 builtin_sources += drivers/samsungipcmodem/samsungipcmodem.h \
 				   drivers/samsungipcmodem/samsungipcmodem.c \
 				   drivers/samsungipcmodem/ipc.h \
-				   drivers/samsungipcmodem/ipc.c
+				   drivers/samsungipcmodem/ipc.c \
+				   drivers/samsungipcmodem/devinfo.c
 builtin_cflags += @SAMSUNGIPCMODEM_CFLAGS@
 builtin_libadd += @SAMSUNGIPCMODEM_LIBS@
 endif
