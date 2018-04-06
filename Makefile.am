@@ -243,6 +243,14 @@ builtin_modules += gobi
 builtin_sources += plugins/gobi.c
 endif
 
+if SAMSUNGIPCMODEM
+builtin_modules += samsungipcmodem
+builtin_sources += drivers/samsungipcmodem/samsungipcmodem.h \
+				   drivers/samsungipcmodem/samsungipcmodem.c
+builtin_cflags += @SAMSUNGIPCMODEM_CFLAGS@
+builtin_libadd += @SAMSUNGIPCMODEM_LIBS@
+endif
+
 if ATMODEM
 builtin_modules += atmodem
 builtin_sources += 	drivers/atmodem/atmodem.h \

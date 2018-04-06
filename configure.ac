@@ -171,6 +171,17 @@ AC_ARG_ENABLE(qmimodem, AC_HELP_STRING([--disable-qmimodem],
 					[enable_qmimodem=${enableval}])
 AM_CONDITIONAL(QMIMODEM, test "${enable_qmimodem}" != "no")
 
+AC_ARG_ENABLE(samsungipcmodem, AC_HELP_STRING([--disable-samsungipcmodem],
+				[disable Samsung IPC modem support]),
+					[enable_samsungipcmodem=${enableval}])
+if (test "${enable_samsungipc}" != "no"); then
+    PKG_CHECK_MODULES(SAMSUNGIPCMODEM, samsung-ipc >= 0.3, dummy=yes,
+                      AC_MSG_ERROR(Samsung IPC library >= 0.3 is required))
+fi
+AC_SUBST(SAMSUNGIPCMODEM_CFLAGS)
+AC_SUBST(SAMSUNGIPCMODEM_LIBS)
+AM_CONDITIONAL(SAMSUNGIPCMODEM, test "${enable_samsungipcmodem}" != "no")
+
 AC_ARG_ENABLE(bluetooth, AC_HELP_STRING([--disable-bluetooth],
 				[disable BlueZ 4 and BlueZ 5 plugins support]),
 					[enable_bluetooth=${enableval}])
