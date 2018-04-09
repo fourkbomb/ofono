@@ -63,7 +63,7 @@ static void misc_me_version_cb(uint16_t cmd, void *data, uint16_t length, uint8_
 {
 	struct cb_data *cbd = user_data;
 	ofono_devinfo_query_cb_t cb = cbd->cb;
-	struct ipc_misc_me_version *version = data;
+	struct ipc_misc_me_version_response_data *version = data;
 	char *str;
 
 	if (error) {
@@ -77,7 +77,7 @@ static void misc_me_version_cb(uint16_t cmd, void *data, uint16_t length, uint8_
 		return;
 	}
 
-	strncpy(str, version->sw_version, 32);
+	strncpy(str, version->software_version, 32);
 	str[32] = '\0';
 
 	CALLBACK_WITH_SUCCESS(cb, str, cbd->data);
@@ -106,7 +106,7 @@ static void misc_me_sn_cb(uint16_t cmd, void *data, uint16_t length, uint8_t err
 {
 	struct cb_data *cbd = user_data;
 	ofono_devinfo_query_cb_t cb = cbd->cb;
-	struct ipc_misc_me_sn *sn = data;
+	struct ipc_misc_me_sn_response_data *sn = data;
 	char *str;
 
 	if (error) {
